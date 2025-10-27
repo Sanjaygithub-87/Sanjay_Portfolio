@@ -1,0 +1,229 @@
+/* BASIC RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+  background: #0f172a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  transition: background 0.5s ease;
+}
+
+/* HEADER COLOR CHANGE on SCROLL (using sections’ color illusion) */
+body:has(#home:target) header {
+  background: linear-gradient(90deg, #4facfe, #0083fe);
+  color: #000;
+}
+body:has(#about:target) header {
+  background: linear-gradient(90deg, #2b1055, #7597de);
+}
+body:has(#education:target) header {
+  background: linear-gradient(90deg, #0f2027, #2c5364);
+}
+body:has(#skills:target) header {
+  background: linear-gradient(90deg, #5b247a, #1bcedf);
+}
+body:has(#projects:target) header {
+  background: linear-gradient(90deg, #1e3a8a, #00b4d8);
+}
+body:has(#certifications:target) header {
+  background: linear-gradient(90deg, #3a1c71, #d76d77);
+}
+body:has(#contact:target) header {
+  background: linear-gradient(90deg, #000428, #004e92);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* NAVIGATION */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* MAIN SECTION SETTINGS */
+main {
+  position: relative;
+  margin-top: 70px;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible when targeted */
+.page:target {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* Default visible section (Home) */
+#home {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* BACKGROUNDS */
+#home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+#about { background: linear-gradient(135deg, #2b1055, #7597de); }
+#education { background: linear-gradient(135deg, #0f2027, #2c5364); }
+#skills { background: linear-gradient(135deg, #5b247a, #1bcedf); }
+#projects { background: linear-gradient(135deg, #1e3a8a, #00b4d8); }
+#certifications { background: linear-gradient(135deg, #3a1c71, #d76d77); }
+#contact { background: linear-gradient(135deg, #000428, #004e92); }
+
+/* HEADINGS & TEXT */
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+p, li {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.9);
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin-bottom: 10px;
+}
+
+/* HOME CONTENT */
+#home .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: left;
+}
+#home .text {
+  max-width: 500px;
+  color: #000;
+}
+#home span {
+  color: #0f172a;
+  background: #fff;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* PHOTO BOX */
+.photo-box {
+  width: 240px;
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* PROFILE PHOTO STYLE */
+.profile-photo {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* SKILLS SECTION */
+.skills div {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+/* PROJECT SECTION */
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: left;
+}
+.project-photo {
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.project-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-info {
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 0.5px;
+}
